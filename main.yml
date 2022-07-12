@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+    - name: displaying hello world from custom module
+      hello_world:
+      register: hello_world_output
+    - debug:
+        msg: "{{ hello_world_output }}"
+    - name: Passing arguments to display the value
+      passing_arguments:
+        first_name: TamilTut
+        last_name: era
+        mobile_number: +12345654321
+      register: pass_args_output
+    - debug:
+        msg: "{{ pass_args_output }}"
